@@ -14,22 +14,20 @@ public class PlayerController : MonoBehaviour
 
     [Header("Floats")]
     [Space]
-
+    [SerializeField] private float speed = 5f;
+    [SerializeField] private float jumpForce = 5f;
     private float xMove;
     private const float groundcheckRadius = 0.2f;
-    private const float overheadCheckRadius = 0.2f;
-    public float speed = 5f;
-    public float jumpForce = 5f;
 
-    /*[Header("Integers")]
+    [Header("Integers")]
     [Space]
-    */
+
     [Header("Bools")]
     [Space]
 
-    [SerializeField] private bool facingRight;
-    [SerializeField] bool Jump;
+    private bool facingRight;
     public bool isGrounded;
+    public bool canDoubleJump;
     #endregion
     #region BaseFunctions
     private void Awake()
@@ -45,7 +43,7 @@ public class PlayerController : MonoBehaviour
 
     private void FixedUpdate()
     {
-        Movement(Jump);
+        BasicMovement();
         GroundCheck();
     }
     #endregion
@@ -59,15 +57,11 @@ public class PlayerController : MonoBehaviour
 
         if (Input.GetButtonDown("Jump"))
         {
-            Jump = true;
-        }
-        else if (Input.GetButtonUp("Jump"))
-        {
-            Jump = false;
+            Jump();
         }
     }
 
-    private void Movement(bool jumpFlag)
+    private void BasicMovement()
     {
         #region Move
         rb.velocity = new Vector2(xMove * speed, rb.velocity.y);
@@ -86,27 +80,31 @@ public class PlayerController : MonoBehaviour
         }
         #endregion
 
-        #region Jump
-
-        if (isGrounded)
-        {
-            if (jumpFlag)
-            {
-                jumpFlag = false;
-                rb.velocity = Vector2.up * jumpForce;
-            }
-        }
-
-        #endregion
     }
 
+    private void Jump()
+    {
+        if (isGrounded == true)
+        {
+            rb.velocity = Vector2.up * jumpForce;
+            canDoubleJump = true;
+        }
+        else if(canDoubleJump == true)
+        {
+            rb.velocity = new Vector2(rb.velocity.x,jumpForce);
+            canDoubleJump = false;
+        }
+    }
     private void GroundCheck()
     {
         isGrounded = false;
         Collider2D[] colliders = Physics2D.OverlapCircleAll(groundCheck.position, groundcheckRadius, groundLayer);
         if (colliders.Length > 0)
+        {
             isGrounded = true;
+        }         
     }
+
     #endregion
 
     #region Public

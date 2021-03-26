@@ -295,8 +295,9 @@ MonoBehaviour:
     m_Bits: 8
   speed: 5
   jumpForce: 5
+  extraJumps: 0
+  extraJumpsValue: 1
   facingRight: 0
-  Jump: 0
   isGrounded: 0
 --- !u!1 &519420028
 GameObject:
