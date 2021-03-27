@@ -5,20 +5,25 @@ using UnityEngine;
 public class PlayerController : MonoBehaviour
 {
     #region Variables
+    //private first then public ones
+
     [Header("References")]
     [Space]
-    [SerializeField] private Rigidbody2D rb;
+    [SerializeField] Rigidbody2D rb;
     //[SerializeField] private Animator anim;
     [SerializeField] Transform groundCheck;
     [SerializeField] LayerMask groundLayer;
+    KeyCode lastKeyCode;
 
     [Header("Floats")]
     [Space]
     [SerializeField] private float speed = 5f;
     [SerializeField] private float jumpForce = 5f;
-    private float xMove;
     private const float groundcheckRadius = 0.2f;
-
+    private float xMove;
+    private float doubleTapTime;
+    public float dashDistance = 15f;
+     
     [Header("Integers")]
     [Space]
 
@@ -28,7 +33,9 @@ public class PlayerController : MonoBehaviour
     private bool facingRight;
     public bool isGrounded;
     public bool canDoubleJump;
+    public bool isDashing;
     #endregion
+
     #region BaseFunctions
     private void Awake()
     {
@@ -53,18 +60,34 @@ public class PlayerController : MonoBehaviour
     #region Private
     private void Inputs()
     {
+        //Move Input
         xMove = Input.GetAxisRaw("Horizontal");
 
+        //Jump Input (Spacebar)
         if (Input.GetButtonDown("Jump"))
         {
             Jump();
+        }
+
+        //Dash Input (double tap A or D)
+        if (Input.GetKeyDown(KeyCode.A))
+        {
+            DashL();
+        }
+
+        if (Input.GetKeyDown(KeyCode.D))
+        {
+            DashR();
         }
     }
 
     private void BasicMovement()
     {
         #region Move
-        rb.velocity = new Vector2(xMove * speed, rb.velocity.y);
+        if (!isDashing)
+        {
+            rb.velocity = new Vector2(xMove * speed, rb.velocity.y);
+        }
         #endregion
 
         #region Flip
@@ -95,6 +118,37 @@ public class PlayerController : MonoBehaviour
             canDoubleJump = false;
         }
     }
+
+    private void DashL()
+    {
+        //Dash Left
+        if (doubleTapTime > Time.time && lastKeyCode == KeyCode.A)
+        {
+            StartCoroutine(Dashing(-1f));
+        }
+        else
+        {
+            doubleTapTime = Time.time + 0.5f;
+        }
+
+        lastKeyCode = KeyCode.A;
+    }
+
+    private void DashR()
+    {
+        //Dash Right
+        if (doubleTapTime > Time.time && lastKeyCode == KeyCode.D)
+        {
+            StartCoroutine(Dashing(1f));
+        }
+        else
+        {
+            doubleTapTime = Time.time + 0.5f;
+        }
+
+        lastKeyCode = KeyCode.D;
+    }
+
     private void GroundCheck()
     {
         isGrounded = false;
@@ -105,6 +159,18 @@ public class PlayerController : MonoBehaviour
         }         
     }
 
+    //Dash Logic (execute in many frames)
+    IEnumerator Dashing(float direction)
+    {
+        isDashing = true;
+        rb.velocity = new Vector2(rb.velocity.x, 0f);
+        rb.AddForce(new Vector2(dashDistance * direction, 0f), ForceMode2D.Impulse);
+        float gravity = rb.gravityScale;
+        rb.gravityScale = 0;
+        yield return new WaitForSeconds(0.4f);
+        isDashing = false;
+        rb.gravityScale = gravity;
+    }
     #endregion
 
     #region Public
