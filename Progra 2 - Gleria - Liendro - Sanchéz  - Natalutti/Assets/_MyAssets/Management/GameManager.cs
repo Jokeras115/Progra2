@@ -39,12 +39,12 @@ public class GameManager : MonoBehaviour
         }
     }
 
-    public void EndMenu()
+    private void EndMenu()
     {
         SceneManager.LoadScene("LooseMenu");
     }
 
-    public void WinMenu()
+    private void WinMenu()
     {
         SceneManager.LoadScene("WinMenu");
     }

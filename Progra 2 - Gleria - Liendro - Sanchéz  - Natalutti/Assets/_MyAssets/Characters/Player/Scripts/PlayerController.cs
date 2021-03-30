@@ -5,15 +5,15 @@ using UnityEngine;
 public class PlayerController : MonoBehaviour
 {
     #region Variables
-    //private first then public ones
+    //SerializeField - Private - Public (In that order)
 
     [Header("References")]
     [Space]
-    public Rigidbody2D rb;
-    //public private Animator anim;
+    //[SerializeField] private Animator anim;
     [SerializeField] Transform groundCheck;
     [SerializeField] LayerMask groundLayer;
-    KeyCode lastKeyCode;
+    private KeyCode lastKeyCode;
+    public Rigidbody2D rb;
 
     [Header("Floats")]
     [Space]
@@ -29,7 +29,6 @@ public class PlayerController : MonoBehaviour
 
     [Header("Bools")]
     [Space]
-
     private bool facingRight;
     public bool isGrounded;
     public bool canDoubleJump;
