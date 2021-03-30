@@ -9,8 +9,8 @@ public class PlayerController : MonoBehaviour
 
     [Header("References")]
     [Space]
-    [SerializeField] Rigidbody2D rb;
-    //[SerializeField] private Animator anim;
+    public Rigidbody2D rb;
+    //public private Animator anim;
     [SerializeField] Transform groundCheck;
     [SerializeField] LayerMask groundLayer;
     KeyCode lastKeyCode;
