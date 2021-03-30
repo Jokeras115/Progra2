@@ -3,14 +3,20 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class volume : MonoBehaviour
+public class Volume : MonoBehaviour
 {
+    [Header("References")]
+    [Space]
     public Slider slider;
-    public float sliderValue;
     public Image imagenMute;
+
+    [Header("Floats")]
+    [Space]
+    public float sliderValue;
+
     void Start()
     {
-        slider.value = PlayerPrefs.GetFloat("volumenAudio", 50.0f);
+        slider.value = PlayerPrefs.GetFloat("AudioVolume", 50.0f);
         AudioListener.volume = slider.value;
         RevisarSiEstoyMute();
     }
@@ -19,7 +25,7 @@ public class volume : MonoBehaviour
     {
 
         sliderValue = valor;
-        PlayerPrefs.SetFloat("volumenAudio", sliderValue);
+        PlayerPrefs.SetFloat("AudioVolume", sliderValue);
         AudioListener.volume = slider.value;
        RevisarSiEstoyMute();
         
