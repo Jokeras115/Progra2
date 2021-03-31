@@ -5,29 +5,30 @@ using UnityEngine.UI;
 
 public class Brightness : MonoBehaviour
 {
+    #region Variables
+    [Header("References")]
+    [Space]
     public Slider slider;
+    public Image brightnessPanel;
+
+    [Header("Floats")]
+    [Space]
     public float sliderValue;
-    public Image panelBrillo;
+    #endregion
+
     void Start()
     {
         slider.value = PlayerPrefs.GetFloat("brillo", 0.5f);
 
-        panelBrillo.color = new Color(panelBrillo.color.r, panelBrillo.color.g, panelBrillo.color.b, slider.value);
-            
+        brightnessPanel.color = new Color(brightnessPanel.color.r, brightnessPanel.color.g, brightnessPanel.color.b, slider.value);
     }
 
-    
-    void Update()
-    {
-        
-    }
-
-    public void ChangeSlider(float valor)
+    public void ChangeSlider(float value)
 
     {
-        sliderValue = valor;
-        PlayerPrefs.SetFloat("brillo", sliderValue);
-        panelBrillo.color = new Color(panelBrillo.color.r, panelBrillo.color.g, panelBrillo.color.b, slider.value);
+        sliderValue = value;
+        PlayerPrefs.SetFloat("Brightness", sliderValue);
+        brightnessPanel.color = new Color(brightnessPanel.color.r, brightnessPanel.color.g, brightnessPanel.color.b, slider.value);
     }
 
 }

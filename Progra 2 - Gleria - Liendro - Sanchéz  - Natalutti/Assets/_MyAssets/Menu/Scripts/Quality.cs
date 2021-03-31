@@ -5,25 +5,25 @@ using UnityEngine.UI;
 
 public class Quality : MonoBehaviour
 {
+    [Header("References")]
+    [Space]
     public Dropdown dropdown;
-    public int calidad;
+
+    [Header("Integers")]
+    [Space]
+    public int quality = 3;
+
     void Start()
     {
-        calidad = PlayerPrefs.GetInt("numeroDeCalidad", 3);
-        dropdown.value = calidad;
-        AjustarCalidad();
+        quality = PlayerPrefs.GetInt("QualityNumber", quality);
+        dropdown.value = quality;
+        AdjustQuality();
     }
 
-
-    void Update()
-    {
-
-    }
-
-    public void AjustarCalidad()
+    public void AdjustQuality()
     {
         QualitySettings.SetQualityLevel(dropdown.value);
         PlayerPrefs.SetInt("numeroDeCalidad", dropdown.value);
-        calidad = dropdown.value;
+        quality = dropdown.value;
     }
 }

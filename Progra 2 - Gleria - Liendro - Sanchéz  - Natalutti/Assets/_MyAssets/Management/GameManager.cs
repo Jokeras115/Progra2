@@ -16,6 +16,11 @@ public class GameManager : MonoBehaviour
         DontDestroyOnLoad(gameObject);
     }
 
+    public void StartGame()
+    {
+        SceneManager.LoadScene("Lvl01");
+    }
+
     public void Fall()
     {
         SceneManager.LoadScene(SceneManager.GetActiveScene().name);
@@ -47,6 +52,12 @@ public class GameManager : MonoBehaviour
     private void WinMenu()
     {
         SceneManager.LoadScene("WinMenu");
+    }
+
+    public void QuitGame()
+    {
+        Application.Quit();
+        Debug.Log("Is Quitting...");
     }
     #endregion
 }

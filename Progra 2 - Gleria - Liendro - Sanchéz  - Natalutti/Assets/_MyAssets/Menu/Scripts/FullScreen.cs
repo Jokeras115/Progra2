@@ -19,14 +19,8 @@ public class FullScreen : MonoBehaviour
 
     }
 
-    void Update()
+    public void FullScreenActivation(bool FullScreen)
     {
-
-    }
-    public void ActivarPantallaCompleta(bool PantallaCompleta)
-
-    {
-
-        Screen.fullScreen = PantallaCompleta;
+        Screen.fullScreen = FullScreen;
     }
 }
