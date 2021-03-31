@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class Brightness : MonoBehaviour
+public class SettingsMenu : MonoBehaviour
 {
     #region Variables
     [Header("References")]
@@ -16,19 +16,29 @@ public class Brightness : MonoBehaviour
     public float sliderValue;
     #endregion
 
-    void Start()
+    private void Start()
     {
-        slider.value = PlayerPrefs.GetFloat("brillo", 0.5f);
+        slider.value = PlayerPrefs.GetFloat("brightness", 0.1f);
 
         brightnessPanel.color = new Color(brightnessPanel.color.r, brightnessPanel.color.g, brightnessPanel.color.b, slider.value);
     }
 
     public void ChangeSlider(float value)
-
     {
         sliderValue = value;
         PlayerPrefs.SetFloat("Brightness", sliderValue);
         brightnessPanel.color = new Color(brightnessPanel.color.r, brightnessPanel.color.g, brightnessPanel.color.b, slider.value);
     }
+
+    public void SetQuality(int qualityIndex)
+    {
+        QualitySettings.SetQualityLevel(qualityIndex);
+    }
+
+    public void SetFullscreen(bool isFullscreen)
+    {
+        Screen.fullScreen = isFullscreen;
+    } 
+
 
 }
