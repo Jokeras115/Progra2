@@ -173,6 +173,10 @@ public class PlayerController : MonoBehaviour
     #endregion
 
     #region Public
+    public void TakeDamage() 
+    {
+
+    }
     #endregion
 
     #endregion
