@@ -133,7 +133,7 @@ GameObject:
   m_Component:
   - component: {fileID: 14247325}
   m_Layer: 0
-  m_Name: GroundCheck (Remember to put)
+  m_Name: GroundCheck
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -384,9 +384,10 @@ GameObject:
   - component: {fileID: 455286637}
   - component: {fileID: 455286636}
   - component: {fileID: 455286640}
+  - component: {fileID: 455286642}
   - component: {fileID: 455286641}
   m_Layer: 0
-  m_Name: PJ
+  m_Name: Player
   m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -426,8 +427,8 @@ CapsuleCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
-  m_Size: {x: 1, y: 2}
+  m_Offset: {x: -0.34843278, y: -0.29136157}
+  m_Size: {x: 0.67559767, y: 2.0901122}
   m_Direction: 0
 --- !u!212 &455286638
 SpriteRenderer:
@@ -469,7 +470,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: -9095717837082945937, guid: e4e91d51c25ef8043a741d22fa9c76c0, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 136d9ec00b39019438a5e5b370bd1134, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -488,7 +489,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 455286635}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -8, y: -2, z: 0}
+  m_LocalPosition: {x: -3.45, y: -1.67, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 14247325}
@@ -504,20 +505,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 455286635}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 081f7de64dadbdf4399e5d3d1253320f, type: 3}
+  m_Script: {fileID: 11500000, guid: 0fd50876d15c8f7439f1f575a52ed5d3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  groundCheck: {fileID: 14247325}
-  groundLayer:
-    serializedVersion: 2
-    m_Bits: 8
   rb: {fileID: 455286636}
-  speed: 10
-  jumpForce: 15
-  dashDistance: 15
-  isGrounded: 0
-  canDoubleJump: 0
-  isDashing: 0
 --- !u!114 &455286641
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -534,6 +525,26 @@ MonoBehaviour:
   Manager: {fileID: 137730046}
   maxHealth: 100
   health: 0
+--- !u!114 &455286642
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 455286635}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 519aa17d97ba43a4c8811935563dd02d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  groundCheck: {fileID: 14247325}
+  groundLayer:
+    serializedVersion: 2
+    m_Bits: 8
+  dashDistance: 15
+  isGrounded: 0
+  canDoubleJump: 0
+  isDashing: 0
 --- !u!1 &519420028
 GameObject:
   m_ObjectHideFlags: 0
@@ -1336,7 +1347,7 @@ GameObject:
   - component: {fileID: 1796353956}
   - component: {fileID: 1796353960}
   m_Layer: 0
-  m_Name: Enemy
+  m_Name: TestEnemy
   m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1438,7 +1449,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1796353955}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 2.49, y: -2, z: 0}
+  m_LocalPosition: {x: 8.13, y: -2, z: 0}
   m_LocalScale: {x: 1.5, y: 1.5, z: 1.5}
   m_Children: []
   m_Father: {fileID: 0}
