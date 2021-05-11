@@ -10,7 +10,6 @@ public class MovementController : MonoBehaviour
     [SerializeField] Transform groundCheck;
     [SerializeField] LayerMask groundLayer;
     private PlayerController player;
-    private KeyCode lastKeyCode;
 
     [Header("Private Flaots")]
     [Space]
@@ -19,7 +18,6 @@ public class MovementController : MonoBehaviour
     private float jumpForce = 15f;
     private const float groundcheckRadius = 0.2f;
     private float xMove;
-    private float doubleTapTime;
 
     [Header("Public Floats")]
     [Space]
@@ -36,7 +34,6 @@ public class MovementController : MonoBehaviour
 
     public bool isGrounded;
     public bool canDoubleJump;
-    public bool isDashing;
     #endregion
 
     #region Public Variables
@@ -79,23 +76,13 @@ public class MovementController : MonoBehaviour
         {
             Jump();
         }
-
-        //Dash Input (double tap A or D)
-        if (Input.GetKeyDown(KeyCode.A))
-        {
-            DashL();
-        }
-
-        if (Input.GetKeyDown(KeyCode.D))
-        {
-            DashR();
-        }
     }
 
     private void BasicMovement()
     {
         #region Movement Logic
         player.rb.velocity = new Vector2(xMove * speed, player.rb.velocity.y);
+        player.anim.SetFloat("xVelocity", Mathf.Abs(xMove));
         #endregion
 
         #region Flip
@@ -126,36 +113,6 @@ public class MovementController : MonoBehaviour
         }
     }
 
-    private void DashL()
-    {
-        //Dash Left
-        if (doubleTapTime > Time.time && lastKeyCode == KeyCode.A)
-        {
-            StartCoroutine(Dashing(-1f));
-        }
-        else
-        {
-            doubleTapTime = Time.time + 0.5f;
-        }
-
-        lastKeyCode = KeyCode.A;
-    }
-
-    private void DashR()
-    {
-        //Dash Right
-        if (doubleTapTime > Time.time && lastKeyCode == KeyCode.D)
-        {
-            StartCoroutine(Dashing(1f));
-        }
-        else
-        {
-            doubleTapTime = Time.time + 0.5f;
-        }
-
-        lastKeyCode = KeyCode.D;
-    }
-
     private void GroundCheck()
     {
         isGrounded = false;
@@ -164,19 +121,6 @@ public class MovementController : MonoBehaviour
         {
             isGrounded = true;
         }
-    }
-
-    //Dash Logic (execute in many frames)
-    IEnumerator Dashing(float direction)
-    {
-        isDashing = true;
-        player.rb.velocity = new Vector2(player.rb.velocity.x, 0f);
-        player.rb.AddForce(new Vector2(dashDistance * direction, 0f), ForceMode2D.Impulse);
-        float gravity = player.rb.gravityScale;
-        player.rb.gravityScale = 0;
-        yield return new WaitForSeconds(0.4f);
-        isDashing = false;
-        player.rb.gravityScale = gravity;
     }
     #endregion
 }
