@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine.SceneManagement;
 using UnityEngine;
 
-public class PauseMenu : MonoBehaviour
+/*public class PauseMenu : MonoBehaviour
 {
     [Header("References")]
     [Space]
@@ -57,4 +57,4 @@ public class PauseMenu : MonoBehaviour
         Debug.Log("Is Quitting...");
     }
     #endregion
-}
+}*/
