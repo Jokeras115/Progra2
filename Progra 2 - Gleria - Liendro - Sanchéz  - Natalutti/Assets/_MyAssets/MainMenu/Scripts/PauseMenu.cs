@@ -13,7 +13,7 @@ public class PauseMenu : MonoBehaviour
     [Space]
     public static bool GameIsPaused = false;
 
-    #region BaseFunctions
+#region BaseFunctions
 
      void Update()
     {
