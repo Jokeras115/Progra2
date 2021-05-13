@@ -14,7 +14,7 @@ public class HeartController : MonoBehaviour
     public GameObject[] heartIMG = new GameObject[5];
     #endregion
 
-#region Unity Methods
+    #region Unity Methods
     
     void Start()
     {
@@ -26,7 +26,7 @@ public class HeartController : MonoBehaviour
     {
         
     }
-#endregion
+    #endregion
 
     #region Public Functions
     public void CreateHeart()
