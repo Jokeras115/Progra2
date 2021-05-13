@@ -2,8 +2,9 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine.SceneManagement;
 using UnityEngine;
+using UnityEngine.UI;
 
-/*public class PauseMenu : MonoBehaviour
+public class PauseMenu : MonoBehaviour
 {
     [Header("References")]
     [Space]
@@ -57,4 +58,4 @@ using UnityEngine;
         Debug.Log("Is Quitting...");
     }
     #endregion
-}*/
+}

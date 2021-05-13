@@ -2,8 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
-
-/*public class SettingsMenu : MonoBehaviour
+public class SettingsMenu : MonoBehaviour
 {
     #region Variables
     [Header("References")]
@@ -18,7 +17,7 @@ using UnityEngine.UI;
 
     private void Start()
     {
-        slider.value = PlayerPrefs.GetFloat("brightness", 0.1f);
+        slider.value = PlayerPrefs.GetFloat("brightness", 0.5f);
 
         brightnessPanel.color = new Color(brightnessPanel.color.r, brightnessPanel.color.g, brightnessPanel.color.b, slider.value);
     }
@@ -38,5 +37,6 @@ using UnityEngine.UI;
     public void SetFullscreen(bool isFullscreen)
     {
         Screen.fullScreen = isFullscreen;
-    } 
-}*/
+        Debug.Log("IsFullScreen");
+    }
+}
