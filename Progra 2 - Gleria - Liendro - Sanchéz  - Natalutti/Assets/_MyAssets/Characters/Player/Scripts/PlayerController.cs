@@ -7,6 +7,7 @@ public class PlayerController : MonoBehaviour
     #region Private Variables
     [Header("Privates References")]
     [Space]
+
     private MovementController movement;
     #endregion
 
@@ -14,14 +15,12 @@ public class PlayerController : MonoBehaviour
     [Header("Public References")]
     [Space]
     public Rigidbody2D rb;
-    public Animator anim;
     #endregion
 
     #region Unity Methods
     void Awake()
     {
         rb = GetComponent<Rigidbody2D>();
-        anim = GetComponent<Animator>();
     }
 
     void Start()
