@@ -3,10 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-
-
-
-public class SettingsMenu : MonoBehaviour
+ public class SettingsMenu : MonoBehaviour
 {
     #region Variables
     [Header("References")]
@@ -41,10 +38,15 @@ public class SettingsMenu : MonoBehaviour
     public void SetFullscreen(bool isFullscreen)
     {
         Screen.fullScreen = isFullscreen;
+ 
 
         Debug.Log("IsFullScreen");
     }
 
-}
+
+        
+    }
+
+
 
 
