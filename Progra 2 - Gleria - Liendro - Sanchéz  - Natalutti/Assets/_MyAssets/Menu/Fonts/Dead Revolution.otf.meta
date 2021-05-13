@@ -10,7 +10,8 @@ TrueTypeFontImporter:
   includeFontData: 1
   fontNames:
   - Dead Revolution
-  fallbackFontReferences: []
+  fallbackFontReferences:
+  - {fileID: 12800000, guid: bc003d830c9d0a04fa4e29fd180812ce, type: 3}
   customCharacters: 
   fontRenderingMode: 0
   ascentCalculationMode: 1

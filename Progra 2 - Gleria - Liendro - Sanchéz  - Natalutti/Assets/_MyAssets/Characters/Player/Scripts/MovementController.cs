@@ -15,7 +15,9 @@ public class MovementController : MonoBehaviour
     [Header("Private Flaots")]
     [Space]
 
+    [SerializeField]
     private float speed = 15f;
+    [SerializeField]
     private float jumpForce = 15f;
     private const float groundcheckRadius = 0.2f;
     private float xMove;
@@ -29,7 +31,6 @@ public class MovementController : MonoBehaviour
     [Header("Private Bools")]
     [Space]
 
-    private bool facingRight;
 
     [Header("Public Bools")]
     [Space]
@@ -37,6 +38,7 @@ public class MovementController : MonoBehaviour
     public bool isGrounded;
     public bool canDoubleJump;
     public bool isDashing;
+    public bool facingRight;
     #endregion
 
     #region Public Variables

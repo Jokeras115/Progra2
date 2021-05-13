@@ -10,7 +10,8 @@ TrueTypeFontImporter:
   includeFontData: 1
   fontNames:
   - Swera Demo Shadowed
-  fallbackFontReferences: []
+  fallbackFontReferences:
+  - {fileID: 12800000, guid: cdbe5d8d32d5c5f4f90c2ca7af630e5e, type: 3}
   customCharacters: 
   fontRenderingMode: 0
   ascentCalculationMode: 1

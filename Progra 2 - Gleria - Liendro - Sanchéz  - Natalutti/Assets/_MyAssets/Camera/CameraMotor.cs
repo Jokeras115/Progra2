@@ -35,6 +35,6 @@ public class CameraMotor : MonoBehaviour
                 delta.y = deltaY + boundY;
 
         // Posicionar la camara
-        transform.position += new Vector3(delta.x, delta.y, 0);
+        transform.position += new Vector3(delta.x, delta.y+2, 0);
     }
 }
