@@ -2,6 +2,10 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+<<<<<<< Updated upstream
+=======
+
+>>>>>>> Stashed changes
 public class SettingsMenu : MonoBehaviour
 {
     #region Variables
@@ -37,6 +41,10 @@ public class SettingsMenu : MonoBehaviour
     public void SetFullscreen(bool isFullscreen)
     {
         Screen.fullScreen = isFullscreen;
+<<<<<<< Updated upstream
         Debug.Log("IsFullScreen");
     }
+=======
+    } 
+>>>>>>> Stashed changes
 }
