@@ -18,7 +18,7 @@ public class GameManager : MonoBehaviour
 
     public void StartGame()
     {
-        SceneManager.LoadScene("Lvl01");
+        SceneManager.LoadScene("Level01");
     }
 
     public void Fall()
