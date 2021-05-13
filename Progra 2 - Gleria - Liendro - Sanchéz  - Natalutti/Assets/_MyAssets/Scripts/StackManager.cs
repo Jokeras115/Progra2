@@ -5,7 +5,7 @@ using UnityEngine;
 public class StackManager : MonoBehaviour
 {
     public static Queue<GameObject> items;
-    public GameObject nextItem;
+    public GameObject used;
 
     public List<Vector3> positions;
     public List<GameObject> weaponsFigures;
@@ -15,7 +15,7 @@ public class StackManager : MonoBehaviour
     void Start()
     {
         items = new Queue<GameObject>();
-        TotalFigures = 2;
+        TotalFigures = 3;
 
         for(int i=0; i<TotalFigures; i++)
         {
@@ -28,34 +28,24 @@ public class StackManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(Input.GetKeyDown(KeyCode.Return))
+        if(Input.GetKeyDown(KeyCode.E))
         {
             PullItemFromQueue();
             PushItemIntoQueue();
             UpdateStackPositions();
         }
     }
-
-    /* Se instancia una figura random del tetris y se guarda en un objeto temporal
-     * Se agrega el objeto temporal a la cola
-     */
     private void PushItemIntoQueue()
     {
-        /* A completar */
         var temp = Instantiate(weaponsFigures[Random.Range(0, (int)TotalFigures)]);
         items.Enqueue(temp);
     }
 
-    /* Se extrae un objeto de la cola
-     * Se copia la escala y el material del objeto extraido de la cola al objeto "nextItem"
-     * Se destruye el objeto extraido de la cola
-     */
     private void PullItemFromQueue()
     {
-        /* A completar */
         var temp = items.Dequeue();
-        nextItem.transform.localScale = temp.transform.localScale;
-        nextItem.GetComponent<Renderer>().material = temp.GetComponent<Renderer>().material;
+        used.transform.localScale = used.transform.localScale;
+        used.GetComponent<Renderer>().material = temp.GetComponent<Renderer>().material;
         Destroy(temp);
     }
 
