@@ -11,17 +11,32 @@ public class StackManager : MonoBehaviour
     public List<GameObject> weaponsFigures;
     private float TotalFigures;
 
+    //Granades
+    public static Stack<GameObject> granades;
+
+    public List<Vector3> granadePositions;
+    public List<GameObject> granadeFigures;
+    private float TotalGranadeFigures;
+
     // Start is called before the first frame update
     void Start()
     {
         items = new Queue<GameObject>();
+        granades = new Stack<GameObject>();
         TotalFigures = 3;
+        TotalGranadeFigures = 3;
 
-        for(int i=0; i<TotalFigures; i++)
+        for (int i=0; i<TotalFigures; i++)
         {
             PushItemIntoQueue();
         }
 
+        for (int i = 0; i < TotalGranadeFigures; i++)
+        {
+            PushItemIntoStack();
+        }
+
+        UpdateQueuePositions();
         UpdateStackPositions();
     }
 
@@ -32,6 +47,18 @@ public class StackManager : MonoBehaviour
         {
             PullItemFromQueue();
             PushItemIntoQueue();
+            UpdateQueuePositions();
+        }
+
+        if (Input.GetKeyDown(KeyCode.G))
+        {
+            PullItemFromStack();
+            UpdateStackPositions();
+        }
+
+        if (Input.GetKeyDown(KeyCode.R))
+        {
+            PushItemIntoStack();
             UpdateStackPositions();
         }
     }
@@ -39,6 +66,14 @@ public class StackManager : MonoBehaviour
     {
         var temp = Instantiate(weaponsFigures[Random.Range(0, (int)TotalFigures)]);
         items.Enqueue(temp);
+    }
+
+    private void PushItemIntoStack()
+    {
+        if (granades.Count >= TotalGranadeFigures)
+            return;
+        var temp = Instantiate(granadeFigures[Random.Range(0, (int)TotalFigures)]);
+        granades.Push(temp);
     }
 
     private void PullItemFromQueue()
@@ -49,7 +84,16 @@ public class StackManager : MonoBehaviour
         Destroy(temp);
     }
 
-    private void UpdateStackPositions()
+    private void PullItemFromStack()
+    {
+        if (granades.Count <= 0)
+            return;
+        var temp = granades.Pop();
+        used.transform.localScale = used.transform.localScale;
+        Destroy(temp);
+    }
+
+    private void UpdateQueuePositions()
     {
         int index = 0;
 
@@ -57,6 +101,17 @@ public class StackManager : MonoBehaviour
         {
             item.transform.position = positions[index];
             index ++;
+        }
+    }
+
+    private void UpdateStackPositions()
+    {
+        int index = 0;
+
+        foreach (GameObject granade in granades)
+        {
+            granade.transform.position = granadePositions[index];
+            index++;
         }
     }
 }
