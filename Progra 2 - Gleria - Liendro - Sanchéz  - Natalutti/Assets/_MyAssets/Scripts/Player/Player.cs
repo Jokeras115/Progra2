@@ -8,12 +8,13 @@ public class Player : MonoBehaviour
     public float jumpForce = 600;
     public GameObject bulletPrefab;
     public Transform shootPoint;
+    
 
     private Rigidbody2D rb2d;
+    private Transform groundCheck;
     private bool facingRight = true;
     private bool jump;
     private bool onGround = false;
-    private Transform groundCheck;
     private float hForce = 0;
     private float fireRate = 0.2f;
     private float nextFire;
