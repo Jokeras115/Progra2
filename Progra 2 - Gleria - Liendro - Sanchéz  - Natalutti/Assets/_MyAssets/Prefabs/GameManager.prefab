@@ -1,0 +1,77 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &6247335216915138054
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 6247335216915138052}
+  - component: {fileID: 6247335216915138053}
+  - component: {fileID: 6247335216915139067}
+  m_Layer: 0
+  m_Name: GameManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &6247335216915138052
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6247335216915138054}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &6247335216915138053
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6247335216915138054}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3f447f8dc7635744a887ebb99fc91a86, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  gameHasEnded: 0
+  hasWinGame: 0
+--- !u!114 &6247335216915139067
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6247335216915138054}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0753512fc6ea1bb49867e405ca5bb486, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  used: {fileID: 0}
+  positions:
+  - {x: -2.5, y: 4, z: 0}
+  - {x: -4.5, y: 4, z: 0}
+  - {x: -6.5, y: 4, z: 0}
+  weaponsFigures:
+  - {fileID: 875676611373824103, guid: 7ca513f9dd532474eb11da9b164ad3e3, type: 3}
+  - {fileID: 7763296003574481047, guid: f7c6ca653d1ca324e8e054f401a2e9c4, type: 3}
+  - {fileID: 1406013435532412572, guid: ff63e8d00dc7c3c4c9a41bdd71c527ec, type: 3}
+  granadePositions:
+  - {x: 5, y: 4, z: 0}
+  - {x: 5, y: 3, z: 0}
+  - {x: 5, y: 2, z: 0}
+  granadeFigures:
+  - {fileID: 269133407088051408, guid: 1034fae62b7e14e47aff1f6f1bc3e228, type: 3}
+  - {fileID: 6889817245366314501, guid: 80cac153d0515364bb5c346bb3099167, type: 3}
+  - {fileID: 1551034687004508139, guid: 8e0540967adf2894286f49cf3f4860f1, type: 3}

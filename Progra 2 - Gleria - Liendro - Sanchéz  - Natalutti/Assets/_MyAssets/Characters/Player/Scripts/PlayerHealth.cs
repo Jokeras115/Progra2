@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class PlayerHealth : MonoBehaviour
 {
@@ -8,6 +9,7 @@ public class PlayerHealth : MonoBehaviour
     [Header("Scripts")]
     public PlayerController controller;
     public GameManager Manager;
+    [SerializeField] Image HPBar;
 
     [Header("Integers")]
     [Space]
@@ -29,10 +31,19 @@ public class PlayerHealth : MonoBehaviour
     public void TakeDamage(int damage)
     {
         health -= damage;
+        UpdateHealthBar();
         if (health <= 0)
         {
             Die();
         }
+    }
+
+    public void GetHeal(int heal)
+    {
+        health += heal;
+        if (health > maxHealth)
+            health = maxHealth;
+        UpdateHealthBar();
     }
 
     public void checkFall()
@@ -49,5 +60,11 @@ public class PlayerHealth : MonoBehaviour
         {
             Manager.EndGame();
         }
+    }
+
+    void UpdateHealthBar()
+    {
+        Debug.Log((float)health / maxHealth);
+        HPBar.fillAmount = (float)health / maxHealth;
     }
 }

@@ -9,9 +9,10 @@ public class EnemyDamage : MonoBehaviour
 
     private void OnCollisionEnter2D(Collision2D coll)
     {
-        if (coll.gameObject.tag == "Player")
+        PlayerHealth player = coll.gameObject.GetComponent<PlayerHealth>();
+        if (player != null)
         {
-            FindObjectOfType<PlayerHealth>().TakeDamage(damage);
+            player.TakeDamage(damage);
         }
     }
 }

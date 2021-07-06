@@ -123,8 +123,10 @@ GameObject:
   - component: {fileID: 2183063845608003143}
   - component: {fileID: 2183063845608003142}
   - component: {fileID: 2183063845608003139}
-  - component: {fileID: 2183063845608003140}
-  - component: {fileID: 2183063845608003138}
+  - component: {fileID: 1695302953}
+  - component: {fileID: 1695302950}
+  - component: {fileID: 1695302951}
+  - component: {fileID: 1695302954}
   m_Layer: 8
   m_Name: Player
   m_TagString: Untagged
@@ -214,14 +216,14 @@ Rigidbody2D:
   m_Mass: 1
   m_LinearDrag: 0
   m_AngularDrag: 0.05
-  m_GravityScale: 1
+  m_GravityScale: 5
   m_Material: {fileID: 0}
   m_Interpolate: 0
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 4
---- !u!61 &2183063845608003140
-BoxCollider2D:
+--- !u!70 &1695302953
+CapsuleCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -233,20 +235,10 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: -0.077281, y: 0.6594157}
-  m_SpriteTilingProperty:
-    border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0.5, y: 0.1}
-    oldSize: {x: 2.7692308, y: 2.3076923}
-    newSize: {x: 2.7692308, y: 2.3076923}
-    adaptiveTilingThreshold: 0.5
-    drawMode: 0
-    adaptiveTiling: 0
-  m_AutoTiling: 0
-  serializedVersion: 2
-  m_Size: {x: 0.9541584, y: 1.2548277}
-  m_EdgeRadius: 0
---- !u!114 &2183063845608003138
+  m_Offset: {x: -0.05877304, y: 0.65371287}
+  m_Size: {x: 0.8689804, y: 1.309766}
+  m_Direction: 0
+--- !u!114 &1695302950
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -255,13 +247,54 @@ MonoBehaviour:
   m_GameObject: {fileID: 2183063845608003165}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3253495c5bf1f70468843408dabd6db3, type: 3}
+  m_Script: {fileID: 11500000, guid: 0fd50876d15c8f7439f1f575a52ed5d3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 5
-  jumpForce: 500
-  bulletPrefab: {fileID: 1461547346924462310, guid: 8c0333cd4a8a6b9469ef72362193768e, type: 3}
+  rb: {fileID: 2183063845608003139}
+  basicBulletPrefab: {fileID: 1461547346924462310, guid: 8c0333cd4a8a6b9469ef72362193768e, type: 3}
+  blueBulletPrefab: {fileID: 3653082496403226613, guid: cf137badaf7ef5d479f81b4ef84dfe5b, type: 3}
+  greenBulletPrefab: {fileID: 347561980236283733, guid: 54e3f0ea25b428b41a2d1e8726f66c0e, type: 3}
+  redBulletPrefab: {fileID: 370278461733320727, guid: 0a926ff069768ac45abfa1896656e98a, type: 3}
   shootPoint: {fileID: 8289678156939113329}
+--- !u!114 &1695302951
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2183063845608003165}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 519aa17d97ba43a4c8811935563dd02d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  groundCheck: {fileID: 6035138967576071285}
+  groundLayer:
+    serializedVersion: 2
+    m_Bits: 8
+  speed: 15
+  jumpForce: 15
+  dashDistance: 15
+  isGrounded: 0
+  canDoubleJump: 0
+  isDashing: 0
+  facingRight: 0
+--- !u!114 &1695302954
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2183063845608003165}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c4149f0373561264d80f861208146f37, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  controller: {fileID: 1695302950}
+  Manager: {fileID: 0}
+  maxHealth: 100
+  health: 0
 --- !u!1 &2183063846272352854
 GameObject:
   m_ObjectHideFlags: 0
