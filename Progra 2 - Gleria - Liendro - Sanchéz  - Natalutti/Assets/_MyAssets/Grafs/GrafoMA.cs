@@ -7,17 +7,16 @@ using UnityEngine;
 
 public class GrafoMA : GrafoTDA
 {
-    static int n = 100;
     public int[,] MAdy;
     public int[,] MId;
     public int[] Etiqs;
     public int cantNodos;
 
-    public void InicializarGrafo()
+    public void InicializarGrafo(int x, int y, int z)
     {
-        MAdy = new int[n, n];
-        MId = new int[n, n];
-        Etiqs = new int[n];
+        MAdy = new int[x, y];
+        MId = new int[x, y];
+        Etiqs = new int[z];
         cantNodos = 0;
     }
 

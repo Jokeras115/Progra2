@@ -13,11 +13,15 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private GameObject greenBulletPrefab;
     [SerializeField] private GameObject redBulletPrefab;
     [SerializeField] private PlayerHealth lifeController;
+    [SerializeField] private Proccess grafo;
+    GameManager gm;
     private Queue<Ammo> ammo = new Queue<Ammo>();
     private Stack<MediPack> mediPacks = new Stack<MediPack>();
     private float nextFire;
     private float nextHeal;
+    private float nextRadar;
     private float fireRate = 0.2f;
+    private float radarRate = 2f;
     [Header("Privates References")]
     [Space]
     private PlayerHealth health;
@@ -44,6 +48,7 @@ public class PlayerController : MonoBehaviour
 
     void Start()
     {
+        gm = GameObject.Find("GameManager").GetComponent<GameManager>();
         currentBulletPrefab = basicBulletPrefab;
         mediPackType = MediPackTypes.White;
     }
@@ -66,6 +71,16 @@ public class PlayerController : MonoBehaviour
         {
             nextHeal = Time.time + fireRate;
             PullMediPack();
+        }
+        if(Input.GetKeyDown(KeyCode.R) && Time.time > nextRadar)
+        {
+            nextRadar = Time.time + radarRate;
+            if (gm.medikitsID.Count > 0)
+            {
+                //gm.node2ID = gm.medikitsID[0];
+                grafo.AlgoritmoDijkstra(gm.node1ID, gm.node2ID);
+                //gm.medikitsID.RemoveAt(0);
+            }
         }
     }
     #endregion
@@ -149,6 +164,9 @@ public class PlayerController : MonoBehaviour
             ammo.Enqueue(new Ammo(tempAmmo.ammoType, tempAmmo.quantity));
             Destroy(collision.gameObject);
         }
+    }
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
         MediPack tempMediPack = collision.gameObject.GetComponent<MediPack>();
         if (tempMediPack != null)
         {
