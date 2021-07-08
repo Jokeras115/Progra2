@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class RankingManager : MonoBehaviour
 {
@@ -77,5 +78,10 @@ public class RankingManager : MonoBehaviour
                 );
             }
         }
+    }
+
+    public void ExitRanking()
+    {
+        SceneManager.LoadScene(1);
     }
 }
