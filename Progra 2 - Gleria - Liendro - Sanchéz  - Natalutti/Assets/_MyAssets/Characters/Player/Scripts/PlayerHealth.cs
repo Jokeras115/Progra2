@@ -64,7 +64,6 @@ public class PlayerHealth : MonoBehaviour
 
     void UpdateHealthBar()
     {
-        Debug.Log((float)health / maxHealth);
         HPBar.fillAmount = (float)health / maxHealth;
     }
 }

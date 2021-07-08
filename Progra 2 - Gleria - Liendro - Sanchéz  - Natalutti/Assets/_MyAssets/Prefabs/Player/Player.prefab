@@ -98,8 +98,8 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
+  m_SortingLayerID: 1352966953
+  m_SortingLayer: 2
   m_SortingOrder: 0
   m_Sprite: {fileID: -6628414004274166170, guid: abb480a6baaf485c81c17a7f3c4fdc42, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -187,8 +187,8 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
+  m_SortingLayerID: 1352966953
+  m_SortingLayer: 2
   m_SortingOrder: 0
   m_Sprite: {fileID: -6628414004274166170, guid: 7adb3002b143465ca80d83e1b71af788, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -250,12 +250,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0fd50876d15c8f7439f1f575a52ed5d3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  rb: {fileID: 2183063845608003139}
   basicBulletPrefab: {fileID: 1461547346924462310, guid: 8c0333cd4a8a6b9469ef72362193768e, type: 3}
   blueBulletPrefab: {fileID: 3653082496403226613, guid: cf137badaf7ef5d479f81b4ef84dfe5b, type: 3}
   greenBulletPrefab: {fileID: 347561980236283733, guid: 54e3f0ea25b428b41a2d1e8726f66c0e, type: 3}
   redBulletPrefab: {fileID: 370278461733320727, guid: 0a926ff069768ac45abfa1896656e98a, type: 3}
+  lifeController: {fileID: 1695302954}
+  grafo: {fileID: 0}
+  rb: {fileID: 2183063845608003139}
   shootPoint: {fileID: 8289678156939113329}
+  ammoType: 0
+  mediPackType: 0
+  magazine: 0
 --- !u!114 &1695302951
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -293,6 +298,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   controller: {fileID: 1695302950}
   Manager: {fileID: 0}
+  HPBar: {fileID: 0}
   maxHealth: 100
   health: 0
 --- !u!1 &2183063846272352854
@@ -365,8 +371,8 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
+  m_SortingLayerID: 1352966953
+  m_SortingLayer: 2
   m_SortingOrder: 1
   m_Sprite: {fileID: -3058517067305430257, guid: 7adb3002b143465ca80d83e1b71af788, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}

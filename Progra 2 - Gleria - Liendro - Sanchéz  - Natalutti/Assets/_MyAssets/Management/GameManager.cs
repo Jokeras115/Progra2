@@ -1,6 +1,7 @@
 using UnityEngine.SceneManagement;
 using UnityEngine;
 using UnityEngine.UI;
+using System.Collections.Generic;
 
 public class GameManager : MonoBehaviour
 {
@@ -13,6 +14,9 @@ public class GameManager : MonoBehaviour
     [SerializeField] Text bulletText;
     [SerializeField] Image mediPackImage;
     [SerializeField] PlayerController player;
+    public int node1ID;
+    public int node2ID;
+    public List<int> medikitsID = new List<int>();
     #endregion
 
     #region Functions
