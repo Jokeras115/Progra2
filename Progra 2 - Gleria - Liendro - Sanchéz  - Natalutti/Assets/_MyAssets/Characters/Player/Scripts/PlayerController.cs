@@ -79,7 +79,6 @@ public class PlayerController : MonoBehaviour
             {
                 gm.node2ID = gm.medikitsID[gm.medikitsID.Count - 1];
                 grafo.AlgoritmoDijkstra(gm.node1ID, gm.node2ID);
-                //gm.medikitsID.RemoveAt(0);
             }
         }
     }
