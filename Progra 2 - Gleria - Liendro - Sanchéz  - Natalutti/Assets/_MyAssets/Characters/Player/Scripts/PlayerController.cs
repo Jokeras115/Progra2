@@ -77,7 +77,7 @@ public class PlayerController : MonoBehaviour
             nextRadar = Time.time + radarRate;
             if (gm.medikitsID.Count > 0)
             {
-                //gm.node2ID = gm.medikitsID[0];
+                gm.node2ID = gm.medikitsID[gm.medikitsID.Count - 1];
                 grafo.AlgoritmoDijkstra(gm.node1ID, gm.node2ID);
                 //gm.medikitsID.RemoveAt(0);
             }
