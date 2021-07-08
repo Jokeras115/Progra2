@@ -1377,6 +1377,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   gameHasEnded: 0
   hasWinGame: 0
+  bulletImage: {fileID: 0}
+  bulletText: {fileID: 0}
+  mediPackImage: {fileID: 0}
+  player: {fileID: 0}
+  node1ID: 0
+  node2ID: 0
+  medikitsID: 
 --- !u!4 &734296140
 Transform:
   m_ObjectHideFlags: 0
@@ -1735,9 +1742,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: 'Name Of
-
-    The Game'
+  m_Text: astro adventure
 --- !u!222 &909170962
 CanvasRenderer:
   m_ObjectHideFlags: 0
