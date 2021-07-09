@@ -25,6 +25,14 @@ public class GameManager : MonoBehaviour
         DontDestroyOnLoad(gameObject);
     }
 
+    public void Start()
+    {
+        bulletImage = GameObject.Find("Ammo")?.GetComponent<Image>();
+        bulletText = GameObject.Find("Magazine")?.GetComponent<Text>();
+        mediPackImage = GameObject.Find("MediPack")?.GetComponent<Image>();
+        player = GameObject.Find("Player")?.GetComponent<PlayerController>();
+    }
+
     public void StartGame()
     {
         SceneManager.LoadScene("Level01");
@@ -32,8 +40,11 @@ public class GameManager : MonoBehaviour
 
     public void Update()
     {
-        UpdatePlayerAmmo();
-        UpdatePlayerMediPacks();
+        if(SceneManager.GetActiveScene().name == "Level01")
+        {
+            UpdatePlayerAmmo();
+            UpdatePlayerMediPacks();
+        }
     }
 
     public void Fall()
@@ -61,6 +72,13 @@ public class GameManager : MonoBehaviour
 
     public void UpdatePlayerAmmo()
     {
+        if (player == null)
+        {
+            player = GameObject.Find("Player").GetComponent<PlayerController>();
+            bulletImage = GameObject.Find("Ammo").GetComponent<Image>();
+            bulletText = GameObject.Find("Magazine").GetComponent<Text>();
+            mediPackImage = GameObject.Find("MediPack").GetComponent<Image>();
+        }
         switch (player.ammoType)
         {
             case BulletTypes.Basic:
