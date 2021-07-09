@@ -61,19 +61,19 @@ public class QueueTF : QueuePriorotyTDA
         int aux = (left + right) / 2;   
         pivot = arr[aux].Score;
 
-        Debug.Log(string.Format("left: {0}, right: {1}", left, right));
+        //Debug.Log(string.Format("left: {0}, right: {1}", left, right));
         
         while (true)
         {
             
             while (arr[left].Score > pivot)
             {
-                Debug.Log("Left");
+                //Debug.Log("Left");
                 left++;
             }
             while (arr[right].Score < pivot)
             {
-                Debug.Log("Right");
+                //Debug.Log("Right");
                 right--;
             }
             if (left < right)
