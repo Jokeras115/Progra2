@@ -37,6 +37,18 @@ public class GameManager : MonoBehaviour
     {
         SceneManager.LoadScene("Level01");
     }
+    public void NextLevel()
+    {
+        if (SceneManager.GetActiveScene().name == "Level02")
+            SceneManager.LoadScene("HighScore");
+        else
+            SceneManager.LoadScene("Level02");
+
+        bulletImage = GameObject.Find("Ammo")?.GetComponent<Image>();
+        bulletText = GameObject.Find("Magazine")?.GetComponent<Text>();
+        mediPackImage = GameObject.Find("MediPack")?.GetComponent<Image>();
+        player = GameObject.Find("Player")?.GetComponent<PlayerController>();
+    }
 
     public void Update()
     {
