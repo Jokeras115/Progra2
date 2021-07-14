@@ -14,4 +14,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/_MyAssets/Scenes/HighScore.unity
     guid: 72b65e5556ec30947b59420fe7ca6944
+  - enabled: 1
+    path: Assets/_MyAssets/Scenes/LooseMenu.unity
+    guid: 2cb3c41f84b63084587fb731b76c4cb9
   m_configObjects: {}
