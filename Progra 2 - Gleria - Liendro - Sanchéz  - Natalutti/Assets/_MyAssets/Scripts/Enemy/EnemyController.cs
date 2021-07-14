@@ -11,7 +11,7 @@ using UnityEngine;
 
         public LifeControllerEnemy lifeControllerEnemy;
 
-        private Animator animatorController;
+        public Animator animatorController;
 
         public Transform player;
 
