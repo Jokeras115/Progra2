@@ -36,6 +36,7 @@ public class PlayerController : MonoBehaviour
     public BulletTypes ammoType;
     public MediPackTypes mediPackType;
     public int magazine;
+    public AudioSource audioGun;
     #endregion
 
     #region Unity Methods

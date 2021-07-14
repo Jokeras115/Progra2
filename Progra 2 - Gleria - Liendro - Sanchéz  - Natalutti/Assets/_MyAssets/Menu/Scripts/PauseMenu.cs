@@ -23,7 +23,7 @@ public class PauseMenu : MonoBehaviour
 
 
     public void RetryGame()
-    {
+    { 
         SceneManager.LoadScene("Level01");
     }
 
