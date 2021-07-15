@@ -19,11 +19,12 @@ public class RankingManager : MonoBehaviour
             queue.Enqueue(playerName);
             UpdateSceen();
         }
+        AddPlayerOnRanking();
     }
 
     public void AddPlayerOnRanking()
     {
-        var playerName = new Player1();
+        var playerName = new Player1(GameManager.managerInstance.playerName, GameManager.managerInstance.playerScore);
 
         Database.current.InsertRanking(playerName);
         playerName = Database.current.GetLatestRanking();
@@ -79,9 +80,12 @@ public class RankingManager : MonoBehaviour
             }
         }
     }
-
+    public void TryAgainButton()
+    {
+        SceneManager.LoadScene(0);
+    }
     public void ExitRanking()
     {
-        SceneManager.LoadScene(1);
+        GameManager.managerInstance.QuitGame();
     }
 }

@@ -14,21 +14,42 @@ public class PauseMenu : MonoBehaviour
     [Space]
     public static bool GameIsPaused = false;
 
-    #region BaseFunctions
+#region BaseFunctions
 
-
+     void Update()
+    {
+        if (Input.GetKeyDown(KeyCode.Escape))
+        {
+            if (GameIsPaused)
+            {
+                Resume();
+            }
+            else
+            {
+                Pause();
+            }
+        }
+    }
     #endregion
     #region MyFunctions
 
-
-
-    public void RetryGame()
-    { 
-        SceneManager.LoadScene("Level01");
+    public void Resume()
+    {
+        pauseMenuUI.SetActive(false);
+        Time.timeScale = 1f;
+        GameIsPaused = false;
     }
 
-
-
+    void Pause()
+    {
+        pauseMenuUI.SetActive(true);
+        Time.timeScale = 0f;
+        GameIsPaused = true;
+    }
+    public void RetryGame()
+    {
+        SceneManager.LoadScene("Level01");
+    }
     public void LoadMenu()
     {
         SceneManager.LoadScene("MainMenu");

@@ -7,12 +7,10 @@ public class NodoClass : MonoBehaviour
     public int id;
     public bool selected;
     public SpriteRenderer sprite;
-    GameManager gm;
 
     void Start()
     {
         sprite = GetComponent<SpriteRenderer>();
-        gm = GameObject.Find("GameManager").GetComponent<GameManager>();
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
@@ -20,12 +18,12 @@ public class NodoClass : MonoBehaviour
         MediPack tempPack = collision.gameObject.GetComponent<MediPack>();
         if (tempPack != null)
         {
-            gm.medikitsID.Add(id);
+            GameManager.managerInstance.medikitsID.Add(id);
         }
         PlayerController tempPlayer = collision.gameObject.GetComponent<PlayerController>();
         if (tempPlayer != null)
         {
-            gm.node1ID = id;
+            GameManager.managerInstance.node1ID = id;
         }
     }
     private void OnTriggerExit2D(Collider2D collision)
@@ -33,7 +31,7 @@ public class NodoClass : MonoBehaviour
         MediPack tempPack = collision.gameObject.GetComponent<MediPack>();
         if (tempPack != null)
         {
-            gm.medikitsID.Remove(id);
+            GameManager.managerInstance.medikitsID.Remove(id);
         }
     }
 }

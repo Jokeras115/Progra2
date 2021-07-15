@@ -8,11 +8,12 @@ public class Player1
     public string PlayerName { get; set; }
     public int Score { get; set; }
 
-    public Player1()
+    public Player1(string name = "Lazy", int pscore = -1)
     {
-        var nameCollection = new NamesBaseCollection();
-
-        this.PlayerName = nameCollection.GetRandomName();
-        this.Score = Random.Range(0, 10000);
+        PlayerName = name;
+        if (pscore < 0)
+            Score = Random.Range(0, 9999);
+        else
+            Score = pscore;
     }
 }
