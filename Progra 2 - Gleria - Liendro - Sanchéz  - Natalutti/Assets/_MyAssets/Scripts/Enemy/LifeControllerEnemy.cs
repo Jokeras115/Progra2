@@ -45,6 +45,7 @@ public class LifeControllerEnemy : MonoBehaviour
 
         private void Kill()
         {
+            GameManager.managerInstance.playerScore += Random.Range(0, 539);
             Destroy(gameObject);
         }
     }
