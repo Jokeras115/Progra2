@@ -14,7 +14,6 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private GameObject redBulletPrefab;
     [SerializeField] private PlayerHealth lifeController;
     [SerializeField] private Proccess grafo;
-    GameManager gm;
     private Queue<Ammo> ammo = new Queue<Ammo>();
     private Stack<MediPack> mediPacks = new Stack<MediPack>();
     private float nextFire;
@@ -48,7 +47,6 @@ public class PlayerController : MonoBehaviour
 
     void Start()
     {
-        gm = GameObject.Find("GameManager").GetComponent<GameManager>();
         currentBulletPrefab = basicBulletPrefab;
         mediPackType = MediPackTypes.White;
     }
@@ -75,10 +73,10 @@ public class PlayerController : MonoBehaviour
         if(Input.GetKeyDown(KeyCode.R) && Time.time > nextRadar)
         {
             nextRadar = Time.time + radarRate;
-            if (gm.medikitsID.Count > 0)
+            if (GameManager.managerInstance.medikitsID.Count > 0)
             {
-                gm.node2ID = gm.medikitsID[gm.medikitsID.Count - 1];
-                grafo.AlgoritmoDijkstra(gm.node1ID, gm.node2ID);
+                GameManager.managerInstance.node2ID = GameManager.managerInstance.medikitsID[GameManager.managerInstance.medikitsID.Count - 1];
+                grafo.AlgoritmoDijkstra(GameManager.managerInstance.node1ID, GameManager.managerInstance.node2ID);
             }
         }
     }

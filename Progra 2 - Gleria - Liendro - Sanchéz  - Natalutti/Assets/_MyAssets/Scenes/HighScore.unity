@@ -136,7 +136,7 @@ GameObject:
   - component: {fileID: 20038999}
   - component: {fileID: 20038998}
   m_Layer: 5
-  m_Name: Add Usser
+  m_Name: TryAgain
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -159,7 +159,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -5.077179, y: -3.4892578}
+  m_AnchoredPosition: {x: -5, y: -3.45}
   m_SizeDelta: {x: 194.31, y: 55.73}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &20038998
@@ -208,7 +208,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 1573056869}
         m_TargetAssemblyTypeName: RankingManager, Assembly-CSharp
-        m_MethodName: AddPlayerOnRanking
+        m_MethodName: TryAgainButton
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -368,7 +368,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 3.311737, y: -3.4614868}
+  m_AnchoredPosition: {x: -1, y: -3.45}
   m_SizeDelta: {x: 194.31, y: 55.73}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &104100097
@@ -1670,7 +1670,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0, y: -6.999998}
+  m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &531919262
@@ -1695,7 +1695,7 @@ MonoBehaviour:
       m_Calls: []
   m_FontData:
     m_Font: {fileID: 12800000, guid: 4406537d1a6668148af465ba3a423e11, type: 3}
-    m_FontSize: 17
+    m_FontSize: 27
     m_FontStyle: 1
     m_BestFit: 0
     m_MinSize: 1
@@ -1706,9 +1706,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: 'Add Usser
-
-'
+  m_Text: Try Again
 --- !u!222 &531919263
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -1885,7 +1883,7 @@ MonoBehaviour:
       m_Calls: []
   m_FontData:
     m_Font: {fileID: 12800000, guid: 4406537d1a6668148af465ba3a423e11, type: 3}
-    m_FontSize: 17
+    m_FontSize: 21
     m_FontStyle: 1
     m_BestFit: 0
     m_MinSize: 1
@@ -3294,7 +3292,7 @@ GameObject:
   - component: {fileID: 1446640196}
   - component: {fileID: 1446640195}
   m_Layer: 5
-  m_Name: Remove Usser
+  m_Name: Exit
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3317,7 +3315,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -0.7438221, y: -3.4336853}
+  m_AnchoredPosition: {x: 3, y: -3.45}
   m_SizeDelta: {x: 194.31, y: 55.73}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1446640195
@@ -3366,7 +3364,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 1573056869}
         m_TargetAssemblyTypeName: RankingManager, Assembly-CSharp
-        m_MethodName: RemovePlayerFromRanking
+        m_MethodName: ExitRanking
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -4879,7 +4877,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0, y: -9.999998}
+  m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &2006368234
@@ -4904,7 +4902,7 @@ MonoBehaviour:
       m_Calls: []
   m_FontData:
     m_Font: {fileID: 12800000, guid: 4406537d1a6668148af465ba3a423e11, type: 3}
-    m_FontSize: 17
+    m_FontSize: 27
     m_FontStyle: 1
     m_BestFit: 0
     m_MinSize: 1
@@ -4915,9 +4913,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: 'Remove Usser
-
-'
+  m_Text: Exit
 --- !u!222 &2006368235
 CanvasRenderer:
   m_ObjectHideFlags: 0
